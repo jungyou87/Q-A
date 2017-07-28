@@ -1,0 +1,8 @@
+<h1>Q&A</h1>
+
+<form #form='ngForm' (submit)='login(user); form.form.reset()'>
+  <p><label>Name: </label>
+  <input type="text" name="name" [(ngModel)]="user.name"></p>
+  <p><input type="submit" value="Login"></p>
+</form>
+ <p *ngFor="let error of errors"> {{ error }} </p> 

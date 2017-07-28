@@ -1,0 +1,25 @@
+<h1>Hi, {{user.name}}  </h1>
+<p><a href [routerLink]="['/dashboard','questions','new']" >Add Question</a> | 
+  <a href (click) = "logout()">Logout</a></p>
+
+<hr>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Answers</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let question of questions; let idx = index">
+        <td> {{ question.question }} </td>
+        <td> {{ question.answers.length }} </td>
+        <td> <a href [routerLink]="['/dashboard','questions', question._id]" >Show</a> &nbsp;| 
+          <a href [routerLink]="['/dashboard', 'answers', question._id]">Answer</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

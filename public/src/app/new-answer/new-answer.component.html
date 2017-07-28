@@ -1,0 +1,14 @@
+<p><a href [routerLink]="['/dashboard']">Home</a> | <a href [routerLink]="['/dashboard','questions', question._id]"> Go Back to Question </a> | <a href (click) = logout() >Logout</a></p>
+
+<h1> {{ question.question }} </h1>
+<h3> {{ question.description }} </h3>
+
+<form (submit) = "createAnswer(answer)">
+  <p><label>Answer: </label></p><p><textarea name='answer'rows="2" cols="20" required [(ngModel)]="answer.answer"></textarea></p>
+  <p *ngFor="let error of errors" > {{ error }} </p>
+  <p><label>Details (Optional): </label></p><p><textarea name="details" rows="2" cols="20" 
+    [(ngModel)]="answer.details"></textarea></p>
+
+  <p><a href [routerLink]="['/dashboard','questions', question._id]"><button>Cancel</button></a>  &nbsp;&nbsp;   
+    <input type="submit" value="Submit"></p>
+</form>

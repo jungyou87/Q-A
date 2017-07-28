@@ -1,0 +1,11 @@
+<a href [routerLink]="['/dashboard']">Home</a> | <a href (click)="logout()">Logout</a>
+<h1>New Question</h1>
+
+<form (submit) = "createQuestion(question)">
+  <p><label>Question: </label></p><p><textarea name='question'rows="2" cols="20" required [(ngModel)]="question.question"></textarea></p>
+  <p *ngFor="let error of errors" > {{ error }} </p>
+  <p><label>Description (Optional): </label></p><p><textarea name="description" rows="2" cols="20" 
+    [(ngModel)]="question.description"></textarea></p>
+
+  <p><a href [routerLink]="['/dashboard']"><button>Cancel</button></a>  &nbsp;&nbsp;   <input type="submit" value="Submit"></p>
+</form>
